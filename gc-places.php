@@ -26,3 +26,7 @@ include( plugin_dir_path( __FILE__ ) . '/actions/add-place-to-tour.php' );
 // Include shortcodes
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/car-pickup-dropoff.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/place-map.php' );
+include( plugin_dir_path( __FILE__ ) . '/shortcodes/all-places-map.php' );
+
+// Add admin menu
+include( plugin_dir_path( __FILE__ ) . '/admin/admin-page.php' );
