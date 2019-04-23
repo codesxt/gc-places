@@ -12,12 +12,6 @@ function gc_places_register_meta_boxes( $meta_boxes ) {
 
         'fields' => array(
             array(
-                'name'  => 'Name',
-                'desc'  => 'Nombre del lugar',
-                'id'    => $prefix . 'name',
-                'type'  => 'text',
-            ),
-            array(
                 'id'   => $prefix . 'gallery',
                 'name'             => 'Galería',
                 'type'             => 'image_advanced',

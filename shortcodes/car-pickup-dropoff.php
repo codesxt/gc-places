@@ -4,6 +4,7 @@ function gc_places_car_pickup_dropoff_shortcode( $atts ) {
   $a = shortcode_atts( array(
       'height' => '400px'
   ), $atts );
+  $mapbox_token = rwmb_meta( 'mapbox_token', array( 'object_type' => 'setting' ), 'gcplaces_options' );
   $pickup_id = rwmb_meta( '_car_pickup_ref' );
   $pickup_place = get_post( $pickup_id );
 
@@ -37,7 +38,7 @@ $output = <<<SHORTCODEOUTPUT
 				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 				maxZoom: 18,
 				id: 'mapbox.streets',
-				accessToken: 'pk.eyJ1IjoiY29kZXN4dCIsImEiOiJjanRnNnR2dnAwMnI2NDNxc3BsMTZhbG43In0.JxJPD5Tumyb1SkuPF_GL3Q'
+				accessToken: '$mapbox_token'
 		}).addTo(mymap);
 
     function onEachFeature(feature, layer) {

@@ -13,11 +13,11 @@ function create_posttype() {
         'rewrite' => array(
           'slug' => 'place'
         ),
-        'hierarchical' => true,
+        'hierarchical' => false,
         'supports' => array(
           'title',
           'editor',
-          'page-attributes',
+          // 'page-attributes',
           'custom-fields'
         ),
         'menu_icon' => 'dashicons-location-alt'
