@@ -22,7 +22,10 @@ include( plugin_dir_path( __FILE__ ) . '/place-cpt/place-metabox.php' );
 // This enables automatic selection of parent taxonomies
 include( plugin_dir_path( __FILE__ ) . '/place-cpt/place-parent-terms.php' );
 
-include( plugin_dir_path( __FILE__ ) . '/actions/add-place-to-tour.php' );
+// Execute actions on existing implementations
+include( plugin_dir_path( __FILE__ ) . '/actions/add-place-to-hotel.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-district-from-hotel.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-related-from-hotel.php' );
 
 // Include tour schedules
 include( plugin_dir_path( __FILE__ ) . '/tour-schedule/tour-schedule.php' );
@@ -32,6 +35,10 @@ include( plugin_dir_path( __FILE__ ) . '/shortcodes/car-pickup-dropoff.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/place-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/all-places-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/children-places-map.php' );
+include( plugin_dir_path( __FILE__ ) . '/shortcodes/all-children-places-map.php' );
 
 // Add admin menu
 include( plugin_dir_path( __FILE__ ) . '/admin/admin-page.php' );
+
+// WP Bakery Integration
+include( plugin_dir_path( __FILE__ ) . '/bakery/register-all-children-places-map.php' );
