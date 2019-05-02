@@ -45,479 +45,319 @@ function gcplaces_create_places_terms() {
     );
   }
 
-  $parent_term = term_exists( 'Place', 'place-type' ); // array is returned if taxonomy is given
-  $parent_term_id = $parent_term['term_id'];
-
-  if( !term_exists( 'TouristDestination', 'place-type' ) ) {
-    wp_insert_term(
-      'TouristDestination',
-      'place-type',
+  $taxonomies = array(
+    array(
+      'name' => 'TouristDestination',
+      'slug' => 'tourist-destination',
+      'parent' => 'Place'
+    ),
+    array(
+      'name' => 'LocalBusiness',
+      'slug' => 'local-business',
+      'parent' => 'Place'
+    ),
       array(
-        'description' => 'TouristDestination as described by Schema.org.',
-        'slug'        => 'tourist-destination',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'LocalBusiness', 'place-type' ) ) {
-    wp_insert_term(
-      'LocalBusiness',
-      'place-type',
+        'name' => 'AnimalShelter',
+        'slug' => 'animal-shelter',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'LocalBusiness as described by Schema.org.',
-        'slug'        => 'local-business',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'Accommodation', 'place-type' ) ) {
-    wp_insert_term(
-      'Accommodation',
-      'place-type',
+        'name' => 'ArchiveOrganization',
+        'slug' => 'archive-organization',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'Accommodation as described by Schema.org.',
-        'slug'        => 'accommodation',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'AdministrativeArea', 'place-type' ) ) {
-    wp_insert_term(
-      'AdministrativeArea',
-      'place-type',
+        'name' => 'AutomotiveBusiness',
+        'slug' => 'automotive-business',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'AdministrativeArea as described by Schema.org.',
-        'slug'        => 'administrative-area',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'CivicStructure', 'place-type' ) ) {
-    wp_insert_term(
-      'CivicStructure',
-      'place-type',
+        'name' => 'ChildCare',
+        'slug' => 'child-care',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'CivicStructure as described by Schema.org.',
-        'slug'        => 'civic-structure',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'Landform', 'place-type' ) ) {
-    wp_insert_term(
-      'Landform',
-      'place-type',
+        'name' => 'Dentist',
+        'slug' => 'dentist',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'Landform as described by Schema.org.',
-        'slug'        => 'landform',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'LandmarksOrHistoricalBuildings', 'place-type' ) ) {
-    wp_insert_term(
-      'LandmarksOrHistoricalBuildings',
-      'place-type',
+        'name' => 'DryCleaningOrLaundry',
+        'slug' => 'dry-cleaning-or-laundry',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'LandmarksOrHistoricalBuildings as described by Schema.org.',
-        'slug'        => 'landmarks-or-historical-buildings',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'Residence', 'place-type' ) ) {
-    wp_insert_term(
-      'Residence',
-      'place-type',
+        'name' => 'EmergencyService',
+        'slug' => 'emergency-service',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'Residence as described by Schema.org.',
-        'slug'        => 'residence',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'TouristAttraction', 'place-type' ) ) {
-    wp_insert_term(
-      'TouristAttraction',
-      'place-type',
+        'name' => 'EmploymentAgency',
+        'slug' => 'employment-agency',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'TouristAttraction as described by Schema.org.',
-        'slug'        => 'tourist-attraction',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  // Add Local Business child taxonomies
-  $parent_term = term_exists( 'LocalBusiness', 'place-type' );
-  $parent_term_id = $parent_term['term_id'];
-
-  if( !term_exists( 'AnimalShelter', 'place-type' ) ) {
-    wp_insert_term(
-      'AnimalShelter',
-      'place-type',
+        'name' => 'EntertainmentBusiness',
+        'slug' => 'entertainment-business',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'AnimalShelter as described by Schema.org.',
-        'slug'        => 'animal-shelter',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'ArchiveOrganization', 'place-type' ) ) {
-    wp_insert_term(
-      'ArchiveOrganization',
-      'place-type',
+        'name' => 'FinancialService',
+        'slug' => 'financial-service',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'ArchiveOrganization as described by Schema.org.',
-        'slug'        => 'archive-organization',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'AutomotiveBusiness', 'place-type' ) ) {
-    wp_insert_term(
-      'AutomotiveBusiness',
-      'place-type',
+        'name' => 'FoodEstablishment',
+        'slug' => 'food-establishment',
+        'parent' => 'LocalBusiness'
+      ),
+        array(
+          'name' => 'Bakery',
+          'slug' => 'bakery',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'BarOrPub',
+          'slug' => 'bar-or-pub',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'Brewery',
+          'slug' => 'brewery',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'CafeOrCoffeeShop',
+          'slug' => 'cafe-or-coffee-shop',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'Distillery',
+          'slug' => 'distillery',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'FastFoodRestaurant',
+          'slug' => 'fast-food-restaurant',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'IceCreamShop',
+          'slug' => 'ice-cream-shop',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'Restaurant',
+          'slug' => 'restaurant',
+          'parent' => 'FoodEstablishment'
+        ),
+        array(
+          'name' => 'Winery',
+          'slug' => 'winery',
+          'parent' => 'FoodEstablishment'
+        ),
       array(
-        'description' => 'AutomotiveBusiness as described by Schema.org.',
-        'slug'        => 'automotive-business',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'ChildCare', 'place-type' ) ) {
-    wp_insert_term(
-      'ChildCare',
-      'place-type',
+        'name' => 'GovernmentOffice',
+        'slug' => 'government-office',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'ChildCare as described by Schema.org.',
-        'slug'        => 'child-care',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'Dentist', 'place-type' ) ) {
-    wp_insert_term(
-      'Dentist',
-      'place-type',
+        'name' => 'HealthAndBeautyBusiness',
+        'slug' => 'health-and-beauty-business',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'Dentist as described by Schema.org.',
-        'slug'        => 'dentist',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'DryCleaningOrLaundry', 'place-type' ) ) {
-    wp_insert_term(
-      'DryCleaningOrLaundry',
-      'place-type',
+        'name' => 'HomeAndConstructionBusiness',
+        'slug' => 'home-and-construction-business',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'DryCleaningOrLaundry as described by Schema.org.',
-        'slug'        => 'dry-cleaning-or-laundry',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'EmergencyService', 'place-type' ) ) {
-    wp_insert_term(
-      'EmergencyService',
-      'place-type',
+        'name' => 'InternetCafe',
+        'slug' => 'internet-cafe',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'EmergencyService as described by Schema.org.',
-        'slug'        => 'emergency-service',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'EmploymentAgency', 'place-type' ) ) {
-    wp_insert_term(
-      'EmploymentAgency',
-      'place-type',
+        'name' => 'LegalService',
+        'slug' => 'legal-service',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'EmploymentAgency as described by Schema.org.',
-        'slug'        => 'employment-agency',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'EntertainmentBusiness', 'place-type' ) ) {
-    wp_insert_term(
-      'EntertainmentBusiness',
-      'place-type',
+        'name' => 'Library',
+        'slug' => 'library',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'EntertainmentBusiness as described by Schema.org.',
-        'slug'        => 'entertainment-business',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'FinancialService', 'place-type' ) ) {
-    wp_insert_term(
-      'FinancialService',
-      'place-type',
+        'name' => 'LodgingBusiness',
+        'slug' => 'lodging-business',
+        'parent' => 'LocalBusiness'
+      ),
+        array(
+          'name' => 'BedAndBreakfast',
+          'slug' => 'bed-and-breakfast',
+          'parent' => 'LodgingBusiness'
+        ),
+        array(
+          'name' => 'Campground',
+          'slug' => 'campground',
+          'parent' => 'LodgingBusiness'
+        ),
+        array(
+          'name' => 'Hostel',
+          'slug' => 'hostel',
+          'parent' => 'LodgingBusiness'
+        ),
+        array(
+          'name' => 'Hotel',
+          'slug' => 'hotel',
+          'parent' => 'LodgingBusiness'
+        ),
+        array(
+          'name' => 'Motel',
+          'slug' => 'motel',
+          'parent' => 'LodgingBusiness'
+        ),
+        array(
+          'name' => 'Resort',
+          'slug' => 'resort',
+          'parent' => 'LodgingBusiness'
+        ),
       array(
-        'description' => 'FinancialService as described by Schema.org.',
-        'slug'        => 'financial-service',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'FoodEstablishment', 'place-type' ) ) {
-    wp_insert_term(
-      'FoodEstablishment',
-      'place-type',
+        'name' => 'MedicalBusiness',
+        'slug' => 'medical-business',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'FoodEstablishment as described by Schema.org.',
-        'slug'        => 'food-establishment',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'GovernmentOffice', 'place-type' ) ) {
-    wp_insert_term(
-      'GovernmentOffice',
-      'place-type',
+        'name' => 'ProfessionalService',
+        'slug' => 'professional-service',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'GovernmentOffice as described by Schema.org.',
-        'slug'        => 'government-office',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'HealthAndBeautyBusiness', 'place-type' ) ) {
-    wp_insert_term(
-      'HealthAndBeautyBusiness',
-      'place-type',
+        'name' => 'RadioStation',
+        'slug' => 'radio-station',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'HealthAndBeautyBusiness as described by Schema.org.',
-        'slug'        => 'health-and-beauty-business',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'HomeAndConstructionBusiness', 'place-type' ) ) {
-    wp_insert_term(
-      'HomeAndConstructionBusiness',
-      'place-type',
+        'name' => 'RealEstateAgent',
+        'slug' => 'real-estate-agent',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'HomeAndConstructionBusiness as described by Schema.org.',
-        'slug'        => 'home-and-construction-business',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'InternetCafe', 'place-type' ) ) {
-    wp_insert_term(
-      'InternetCafe',
-      'place-type',
+        'name' => 'RecyclingCenter',
+        'slug' => 'recycling-center',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'InternetCafe as described by Schema.org.',
-        'slug'        => 'internet-cafe',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'LegalService', 'place-type' ) ) {
-    wp_insert_term(
-      'LegalService',
-      'place-type',
+        'name' => 'SelfStorage',
+        'slug' => 'self-storage',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'LegalService as described by Schema.org.',
-        'slug'        => 'legal-service',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'Library', 'place-type' ) ) {
-    wp_insert_term(
-      'Library',
-      'place-type',
+        'name' => 'ShoppingCenter',
+        'slug' => 'shopping-center',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'Library as described by Schema.org.',
-        'slug'        => 'library',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'LodgingBusiness', 'place-type' ) ) {
-    wp_insert_term(
-      'LodgingBusiness',
-      'place-type',
+        'name' => 'SportsActivityLocation',
+        'slug' => 'sports-activity-location',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'LodgingBusiness as described by Schema.org.',
-        'slug'        => 'lodging-business',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'MedicalBusiness', 'place-type' ) ) {
-    wp_insert_term(
-      'MedicalBusiness',
-      'place-type',
+        'name' => 'Store',
+        'slug' => 'store',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'MedicalBusiness as described by Schema.org.',
-        'slug'        => 'medical-business',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'ProfessionalService', 'place-type' ) ) {
-    wp_insert_term(
-      'ProfessionalService',
-      'place-type',
+        'name' => 'TelevisionStation',
+        'slug' => 'television-station',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'ProfessionalService as described by Schema.org.',
-        'slug'        => 'professional-service',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'RadioStation', 'place-type' ) ) {
-    wp_insert_term(
-      'RadioStation',
-      'place-type',
+        'name' => 'TouristInformationCenter',
+        'slug' => 'tourist-information-center',
+        'parent' => 'LocalBusiness'
+      ),
       array(
-        'description' => 'RadioStation as described by Schema.org.',
-        'slug'        => 'radio-station',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'RealEstateAgent', 'place-type' ) ) {
-    wp_insert_term(
-      'RealEstateAgent',
-      'place-type',
+        'name' => 'TravelAgency',
+        'slug' => 'travel-agency',
+        'parent' => 'LocalBusiness'
+      ),
+    array(
+      'name' => 'Accommodation',
+      'slug' => 'accommodation',
+      'parent' => 'Place'
+    ),
       array(
-        'description' => 'RealEstateAgent as described by Schema.org.',
-        'slug'        => 'real-estate-agent',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'RecyclingCenter', 'place-type' ) ) {
-    wp_insert_term(
-      'RecyclingCenter',
-      'place-type',
+        'name' => 'Apartment',
+        'slug' => 'apartment',
+        'parent' => 'Accommodation'
+      ),
       array(
-        'description' => 'RecyclingCenter as described by Schema.org.',
-        'slug'        => 'recycling-center',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'SelfStorage', 'place-type' ) ) {
-    wp_insert_term(
-      'SelfStorage',
-      'place-type',
+        'name' => 'CampingPitch',
+        'slug' => 'camping-pitch',
+        'parent' => 'Accommodation'
+      ),
       array(
-        'description' => 'SelfStorage as described by Schema.org.',
-        'slug'        => 'self-storage',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'ShoppingCenter', 'place-type' ) ) {
-    wp_insert_term(
-      'ShoppingCenter',
-      'place-type',
+        'name' => 'House',
+        'slug' => 'house',
+        'parent' => 'Accommodation'
+      ),
       array(
-        'description' => 'ShoppingCenter as described by Schema.org.',
-        'slug'        => 'shopping-center',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'SportsActivityLocation', 'place-type' ) ) {
-    wp_insert_term(
-      'SportsActivityLocation',
-      'place-type',
+        'name' => 'Room',
+        'slug' => 'room',
+        'parent' => 'Accommodation'
+      ),
       array(
-        'description' => 'SportsActivityLocation as described by Schema.org.',
-        'slug'        => 'sports-activity-location',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
+        'name' => 'Suite',
+        'slug' => 'suite',
+        'parent' => 'Accommodation'
+      ),
+    array(
+      'name' => 'AdministrativeArea',
+      'slug' => 'administrative-area',
+      'parent' => 'Place'
+    ),
+    array(
+      'name' => 'CivicStructure',
+      'slug' => 'civic-structure',
+      'parent' => 'Place'
+    ),
+    array(
+      'name' => 'Landform',
+      'slug' => 'landform',
+      'parent' => 'Place'
+    ),
+    array(
+      'name' => 'LandmarksOrHistoricalBuildings',
+      'slug' => 'landmarks-or-historical-buildings',
+      'parent' => 'Place'
+    ),
+    array(
+      'name' => 'Residence',
+      'slug' => 'residence',
+      'parent' => 'Place'
+    ),
+    array(
+      'name' => 'TouristAttraction',
+      'slug' => 'tourist-attraction',
+      'parent' => 'Place'
+    ),
+  );
 
-  if( !term_exists( 'Store', 'place-type' ) ) {
-    wp_insert_term(
-      'Store',
-      'place-type',
-      array(
-        'description' => 'Store as described by Schema.org.',
-        'slug'        => 'store',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
+  foreach ($taxonomies as $taxonomy) {
+    $parent_term = term_exists( $taxonomy['parent'], 'place-type' ); // array is returned if taxonomy is given
+    $parent_term_id = $parent_term['term_id'];
 
-  if( !term_exists( 'TelevisionStation', 'place-type' ) ) {
-    wp_insert_term(
-      'TelevisionStation',
-      'place-type',
-      array(
-        'description' => 'TelevisionStation as described by Schema.org.',
-        'slug'        => 'television-station',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'TouristInformationCenter', 'place-type' ) ) {
-    wp_insert_term(
-      'TouristInformationCenter',
-      'place-type',
-      array(
-        'description' => 'TouristInformationCenter as described by Schema.org.',
-        'slug'        => 'tourist-information-center',
-        'parent'      => $parent_term_id
-      )
-    );
-  }
-
-  if( !term_exists( 'TravelAgency', 'place-type' ) ) {
-    wp_insert_term(
-      'TravelAgency',
-      'place-type',
-      array(
-        'description' => 'TravelAgency as described by Schema.org.',
-        'slug'        => 'travel-agency',
-        'parent'      => $parent_term_id
-      )
-    );
+    if( !term_exists( $taxonomy['name'], 'place-type' ) ) {
+      wp_insert_term(
+        $taxonomy['name'],
+        'place-type',
+        array(
+          'description' => $taxonomy['name'] . ' as described by Schema.org.',
+          'slug'        => $taxonomy['slug'],
+          'parent'      => $parent_term_id
+        )
+      );
+    }
   }
 }
 
