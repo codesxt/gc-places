@@ -50,6 +50,7 @@ include( plugin_dir_path( __FILE__ ) . '/shortcodes/all-places-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/children-places-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/all-children-places-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/places-teaser-list.php' );
+include( plugin_dir_path( __FILE__ ) . '/shortcodes/tours-showcase.php' );
 
 // Add admin menu
 include( plugin_dir_path( __FILE__ ) . '/admin/admin-page.php' );
@@ -57,3 +58,4 @@ include( plugin_dir_path( __FILE__ ) . '/admin/admin-page.php' );
 // WP Bakery Integration
 include( plugin_dir_path( __FILE__ ) . '/bakery/register-all-children-places-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/bakery/register-all-children-places-teaser-list.php' );
+include( plugin_dir_path( __FILE__ ) . '/bakery/register-tours-showcase.php' );
