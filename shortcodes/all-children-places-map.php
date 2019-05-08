@@ -1,35 +1,4 @@
 <?php
-function get_posts_children($parent_id){
-  // Based on: https://wordpress.stackexchange.com/questions/81645/how-to-get-all-children-and-grandchildren-of-a-hierarchical-custom-post-type
-  $children = array();
-  $posts = get_posts(
-    array(
-      'numberposts' => -1,
-      'post_status' => 'publish',
-      'post_type' => 'any',
-      'post_parent' => $parent_id,
-      'suppress_filters' => false
-    )
-  );
-  foreach( $posts as $child ){
-    $gchildren = get_posts_children($child->ID);
-    if( !empty($gchildren) ) {
-      $children = array_merge($children, $gchildren);
-    }
-  }
-  $children = array_merge($children,$posts);
-  return $children;
-}
-
-function filter_posts_by_type($posts, $type) {
-  $filtered_posts = array();
-  foreach ( $posts as $post ) {
-    if ( $post->post_type == $type ) {
-      array_push($filtered_posts, $post);
-    }
-  }
-  return $filtered_posts;
-}
 
 function gc_places_all_children_places_map_shortcode( $atts ) {
   $a = shortcode_atts( array(
@@ -70,37 +39,7 @@ EOT;
       continue;
     }
     if ($redirect_hotels) {
-      // Verificar si el place pertenece a un hotel
-      $args = array(
-        'post_type' => 'hotel',
-        'meta_query' => array(
-          array(
-            'key' => '_hotel_place_ref',
-            'value' => $place->ID,
-            'compare' => '=',
-          )
-        )
-      );
-      $query = new WP_Query($args);
-      echo "<pre>";
-      echo $place->post_title;
-      echo "</pre>";
-      echo "<pre>";
-      echo "Tiene posts: " . $query->have_posts();
-      echo "</pre>";
-      while ($query->have_posts()) {
-        $query->the_post();
-        echo "<pre>";
-        echo get_the_title();
-        echo "</pre>";
-      }
-      if ($query->have_posts()) {
-        // Si pertenece a un hotel, linkear al hotel
-        $permalink = get_post_permalink();
-      } else {
-        $permalink = get_post_permalink($place->ID);
-      }
-      wp_reset_postdata();
+      $permalink = gc_places_get_place_permalink($place);
     } else {
       $permalink = get_post_permalink($place->ID);
     }
@@ -125,13 +64,16 @@ EOT;
     $geojsonlist .= "\n";
     $geojsonlist .= $point_text;
   }
+    $start_lat = -33.4727092;
+    $start_lng = -70.769915;
+    $start_zoom = 13;
 
-  // HEREDOC notation
+    // HEREDOC notation
 $output = <<<SHORTCODEOUTPUT
   <div id="allChildrenPlacesMap" style="height:{$a['height']};"></div>
   <script>
   (function( $ ) {
-    let mymap = L.map('allChildrenPlacesMap').setView([-33.4727092,-70.769915], 13);
+    let mymap = L.map('allChildrenPlacesMap').setView([$start_lat,$start_lng], $start_zoom);
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 				maxZoom: 18,

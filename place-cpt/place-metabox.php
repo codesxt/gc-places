@@ -48,7 +48,7 @@ function gc_places_register_meta_boxes( $meta_boxes ) {
             array(
                 'name'  => 'Sitio Web',
                 'desc'  => 'Uno o más sitios web relacionados con el lugar',
-                'id'    => $prefix . 'email',
+                'id'    => $prefix . 'website',
                 'type'  => 'text',
                 'clone'       => true
             ),

@@ -1,0 +1,43 @@
+/* styles for '...' */ 
+.block-with-text {
+  /* Over flow hidden hides the text if it is more than N lines  */
+  overflow: hidden;
+  /* To set '...' in absolute position */
+  position: relative;
+  /* Use this value to count block height */
+  line-height: 1.2em;
+  /* Max-height = line-height (1.2) * lines max number (2) */
+  max-height: 2.4em;
+  /* If the last visible word doesn't adjoin right side then this will fix the problem */
+  text-align: justify !important;
+  /* place for '...' */
+  padding-right: 40px;
+  padding-left: 1em;
+}
+
+/* create the ... */
+.block-with-text:before {
+  /* points in the end */
+  content: '...';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 20px;
+  bottom: 0;
+}
+
+/* hide ... if we have text, which is less than or equal to max lines */
+.block-with-text:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 20px;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: white;
+}
