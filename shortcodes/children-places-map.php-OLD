@@ -17,7 +17,6 @@ function gc_places_children_places_map_shortcode( $atts ) {
   	'post_status' => 'any'
   );
   $places = get_children( $args );
-  print_r($places);
   $geojsonlist = "";
   foreach ($places as $place) {
     $geojson = htmlspecialchars_decode(get_post_meta( $place->ID, '_place_geo', $single = true ));

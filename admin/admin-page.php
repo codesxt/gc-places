@@ -1,148 +1,63 @@
 <?php
 
-/*
-add_action( 'admin_menu', 'gcplaces_menu' );
+function gcplaces_build_icontaxonomy_form_fields () {
+  $fields = array();
+  array_push($fields, array(
+      'type' => 'custom_html',
+      'std'  => '<h1>Íconos por Taxonomía de Place</h1>',
+  ));
 
-function gcplaces_menu() {
-	add_menu_page(
-    'Great Chile Places',
-    'GC Places',
-    'manage_options',
-    'gc-places/gc-places-admin-page.php',
-    'gcplaces_admin_page',
-    'dashicons-media-code',
-    null
-  );
+  $terms = get_terms( array(
+    'taxonomy' => 'place-type',
+    'hide_empty' => false,
+  ));
+
+  foreach ($terms as $term) {
+    $taxonomy = $term->name;
+    $form_group = array(
+      'id'     => $taxonomy . '_config',
+      'type'   => 'group',
+      'sort_clone' => true,
+      'fields' => array(
+        array(
+            'type' => 'custom_html',
+            'std'  => '<h1>'.$taxonomy.'</h1>',
+        ),
+        array(
+          'id'               => 'icon',
+          'name'             => 'Icon',
+          'type'             => 'image_advanced',
+          'force_delete'     => false,
+          'max_file_uploads' => 1,
+          'max_status'       => 'false',
+          'image_size'       => 'thumbnail',
+        ),
+        array(
+          'name'          => 'Color de relleno',
+          'id'            => 'fill_color',
+          'type'          => 'color',
+          'alpha_channel' => true,
+          // Color picker options. See here: https://automattic.github.io/Iris/.
+          'js_options'    => array(
+            'palettes' => true
+          ),
+        ),
+        array(
+          'name'          => 'Color de borde',
+          'id'            => 'border_color',
+          'type'          => 'color',
+          'alpha_channel' => true,
+          // Color picker options. See here: https://automattic.github.io/Iris/.
+          'js_options'    => array(
+            'palettes' => true
+          ),
+        )
+      )
+    );
+    array_push($fields, $form_group);
+  };
+  return $fields;
 }
-
-function gcplaces_admin_page(){
-	?>
-	<div class="wrap">
-		<h1>Great Chile Places</h1>
-    <p>
-      Aquí se documenta el functionamiento del plugin Great Chile Places,
-      desarrollado para añadir funcionalidades al sitio Great Chile.
-    </p>
-    <h2>Shortcodes</h2>
-    <p>
-      A continuación se listan los shortcodes definidos por este plugin y
-      sus parámetros respectivos.
-    </p>
-
-    <h3>[place_map]</h3>
-    <p>
-      Se usa en la página de un post tipo Place.
-      Muestra un mapa con la ubicación del post.
-    </p>
-    <table class="plainview_sdk_table widefat">
-    	<thead>
-    		<tr>
-    			<th>Parámetro</th>
-          <th>Opcional</th>
-          <th>Ejemplo</th>
-    			<th>Descripción</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-        <tr>
-          <td>post_id</td>
-          <td>Opcional</td>
-    			<td>123</td>
-    			<td>
-            Define el post del que se mostrará la ubicación.
-            Si se omite, se utilizará el post de la página actual.
-          </td>
-    		</tr>
-    		<tr>
-          <td>height</td>
-          <td>Opcional</td>
-    			<td>400px</td>
-    			<td>
-            Define la altura del mapa.
-          </td>
-    		</tr>
-    	</tbody>
-    </table>
-
-    <h3>[car_pickup_dropoff_map]</h3>
-    <p>
-      Se usa en la página de un post tipo Car.
-      Muestra un mapa las ubicaciones de Pickup y Dropoff.
-    </p>
-    <table class="plainview_sdk_table widefat">
-    	<thead>
-    		<tr>
-    			<th>Parámetro</th>
-          <th>Opcional</th>
-          <th>Ejemplo</th>
-    			<th>Descripción</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<tr>
-          <td>height</td>
-          <td>Opcional</td>
-    			<td>400px</td>
-    			<td>
-            Define la altura del mapa.
-          </td>
-    		</tr>
-    	</tbody>
-    </table>
-
-    <h3>[all_places_map]</h3>
-    <p>
-      Se usa en cualquier página.
-      Muestra un mapa las ubicaciones de todos los post tipo Place registrados.
-    </p>
-    <table class="plainview_sdk_table widefat">
-    	<thead>
-    		<tr>
-    			<th>Parámetro</th>
-          <th>Opcional</th>
-          <th>Ejemplo</th>
-    			<th>Descripción</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<tr>
-          <td>height</td>
-          <td>Opcional</td>
-    			<td>400px</td>
-    			<td>
-            Define la altura del mapa.
-          </td>
-    		</tr>
-    	</tbody>
-    </table>
-
-		<h3>[children_places_map]</h3>
-    <p>
-      Muestra en un mapa las ubicaciones de los post tipo Place hijos de la página actual.
-    </p>
-    <table class="plainview_sdk_table widefat">
-    	<thead>
-    		<tr>
-    			<th>Parámetro</th>
-          <th>Opcional</th>
-          <th>Ejemplo</th>
-    			<th>Descripción</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<tr>
-          <td>height</td>
-          <td>Opcional</td>
-    			<td>400px</td>
-    			<td>
-            Define la altura del mapa.
-          </td>
-    		</tr>
-    	</tbody>
-    </table>
-	</div>
-	<?php
-}*/
 
 // Register settings page. In this case, it's a theme options page
 add_filter( 'mb_settings_pages', 'gcplaces_options_page' );
@@ -156,6 +71,7 @@ function gcplaces_options_page( $settings_pages ) {
         'columns'     => 1,
         'tabs'        => array(
             'general' => 'Opciones Generales',
+            'map_settings' => 'Configuraciones de Mapas',
             'shortcodes' => 'Shortcodes',
         ),
         'position'    => 68,
@@ -180,6 +96,14 @@ function prefix_options_meta_boxes( $meta_boxes ) {
                 'type' => 'text',
             ),
         ),
+    );
+
+    $meta_boxes[] = array(
+        'id'             => 'map_settings',
+        'title'          => 'Map Settings',
+        'settings_pages' => 'gcplaces_settings',
+        'tab'            => 'map_settings',
+        'fields'         => gcplaces_build_icontaxonomy_form_fields(),
     );
 
     $meta_boxes[] = array(

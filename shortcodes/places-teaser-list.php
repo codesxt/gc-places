@@ -27,12 +27,12 @@ function gc_places_all_children_places_teaser_list_shortcode( $atts ) {
     $output .= '      <h3>';
     $output .= '        <a href="' . $permalink . '">'. $place->post_title .'</a>';
     $output .= '      </h3>';
-    if (gc_places_is_place_hotel($place) > -1) {
+    if (gc_places_is_place_hotel($place) > -1 && !empty(get_post_meta( gc_places_is_place_hotel($place), '_hotel_price', true ))) {
       $output .= '      <div>';
       $output .= '        <h4>'.esc_html__( 'from/per night', 'citytours' ).': $'. get_post_meta( gc_places_is_place_hotel($place), '_hotel_price', true ) .'</h4>';
       $output .= '      </div>';
     }
-    $output .= '      <p class="block-with-text">' . $place->post_content . '</p>';
+    $output .= '      <div class="block-with-text">' . $place->post_content . '</div>';
     $output .= '    </div>';
     $output .= '  </div>';
     $output .= '  <div class="col-sm-3">';

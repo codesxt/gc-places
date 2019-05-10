@@ -1,9 +1,9 @@
 <?php
 
-function gc_places_all_children_places_map_shortcode( $atts ) {
+add_shortcode( 'tour_map', 'gc_places_tour_map_shortcode' );
+function gc_places_tour_map_shortcode( $atts ) {
   $a = shortcode_atts( array(
     'post_id' => get_the_ID(),
-    'redirect-hotels' => 'yes',
     'height' => '400px',
     'div_id' => 'map',
     'lat' => '-33.4727092',
@@ -11,23 +11,30 @@ function gc_places_all_children_places_map_shortcode( $atts ) {
     'zoom' => '13'
   ), $atts );
   $mapbox_token = rwmb_meta( 'mapbox_token', array( 'object_type' => 'setting' ), 'gcplaces_options' );
-  $redirect_hotels = ($a['redirect-hotels'] == 'yes' ? true : false);
 
-  $descendants = get_posts_children(get_the_ID());
-  $filtered_posts = filter_posts_by_type($descendants, 'place');
-  $places = $filtered_posts;
+  $places = array();
   $geojsonlist = "";
+
+  // Obtener el itinerario
+  $schedule_data = rwmb_meta( 'tour_schedule', null, $a['post_id'] );
+
+  // Obtener todos los lugares del itinerario
+  foreach ( $schedule_data as $day ) :
+	foreach ( $day['activities'] as $activity ) :
+    if ( !empty($activity['activity_location']) ) {
+      $activity_place = get_post( $activity['activity_location'] );
+      if ( !empty($activity_place) ) {
+        array_push($places, $activity_place);
+      }
+    }
+	endforeach;
+	endforeach;
 
   // Poner todos los lugares en el mapa
   foreach ($places as $place) {
     $geojson = htmlspecialchars_decode(get_post_meta( $place->ID, '_place_geo', $single = true ));
     if( empty($geojson) ) {
       continue;
-    }
-    if ($redirect_hotels) {
-      $permalink = gc_places_get_place_permalink($place);
-    } else {
-      $permalink = get_post_permalink($place->ID);
     }
 
     // Obtener ícono custom por taxonomía
@@ -48,8 +55,7 @@ function gc_places_all_children_places_map_shortcode( $atts ) {
     $point_text = "";
     $point_text .= "geojson = ".$geojson.";\n";
     $point_text .= "geojson.properties = {";
-    $point_text .= "  name: '".$place->post_title."',";
-    $point_text .= "  url: '".$permalink."'";
+    $point_text .= "  name: '".$place->post_title."'";
     $point_text .= "};\n";
     $point_text .= "features.push(L.geoJSON(";
     $point_text .= "  geojson,";
@@ -82,10 +88,10 @@ $output = <<<EOT
   {$a['div_id']}.scrollWheelZoom.disable();
 
   function onEachFeature(feature, layer) {
-		let popupContent = "";
-    popupContent += "<b><a href='" + feature.properties.url + "'>" + feature.properties.name + "</a></b>";
-		layer.bindPopup(popupContent);
-	}
+    let popupContent = "";
+    popupContent += "<b>Lugar: " + feature.properties.name + "</b>";
+    layer.bindPopup(popupContent);
+  }
 
   let features = [];
   let geojson = '';
@@ -100,4 +106,3 @@ EOT;
 
   return $output;
 }
-add_shortcode( 'all_children_places_map', 'gc_places_all_children_places_map_shortcode' );

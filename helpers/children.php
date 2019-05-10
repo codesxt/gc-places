@@ -1,4 +1,5 @@
 <?php
+
 function get_posts_children($parent_id){
   // Based on: https://wordpress.stackexchange.com/questions/81645/how-to-get-all-children-and-grandchildren-of-a-hierarchical-custom-post-type
   $children = array();
