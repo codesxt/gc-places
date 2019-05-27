@@ -18,7 +18,7 @@ function gc_places_tours_showcase_shortcode( $atts ) {
 
     $output .= '';
     $output .= '<div class="strip_all_tour_list wow fadeIn animated animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">';
-    $output .= '<div class="col-sm-4">';
+    $output .= '<div class="col-sm-4 col-xs-12">';
     $output .= '  <div class="tour_container">';
     $output .= '    <div class="img_container" style="max-height:140;overflow:hidden;">';
     $output .= '      <a href="'. $permalink .'" data-slimstat="5">';

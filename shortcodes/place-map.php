@@ -13,6 +13,8 @@ function gc_places_place_map_shortcode( $atts ) {
   $mapbox_token = rwmb_meta( 'mapbox_token', array( 'object_type' => 'setting' ), 'gcplaces_options' );
 
   $geojson = htmlspecialchars_decode(get_post_meta( $a['post_id'], '_place_geo', $single = true ));
+  $point_text = "";
+  $place_string = __( 'Place', 'gcplaces');
   if( !empty($geojson) ) {
     $place = get_post( $a['post_id'] );
 
@@ -68,7 +70,7 @@ $output = <<<EOT
 
   function onEachFeature(feature, layer) {
     let popupContent = "";
-    popupContent += "<b>Lugar: " + feature.properties.name + "</b>";
+    popupContent += "<b>$place_string: " + feature.properties.name + "</b>";
     layer.bindPopup(popupContent);
   }
 

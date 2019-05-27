@@ -69,7 +69,9 @@ function gc_places_all_children_places_map_shortcode( $atts ) {
   }
 
 $output = <<<EOT
+  <div class="wpb_content_element">
   <div id="{$a['div_id']}" style="height:{$a['height']};"></div>
+  </div>
   <script>
   let {$a['div_id']} = L.map('{$a['div_id']}').setView([{$a['lat']},{$a['lng']}], {$a['zoom']});
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {

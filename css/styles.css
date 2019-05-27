@@ -1,0 +1,13 @@
+/*.woocommerce table.cart td:nth-of-type(4), .woocommerce table.cart th:nth-of-type(4) {
+  display: none;
+}*/
+
+.product-price, .product-quantity {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #billing_country_field {
+    width: 50% !important;
+  }
+}

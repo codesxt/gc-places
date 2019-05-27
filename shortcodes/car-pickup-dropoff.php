@@ -11,6 +11,9 @@ function gc_places_car_pickup_dropoff_shortcode( $atts ) {
     'zoom' => '13'
   ), $atts );
 
+  $pickup_string = __( 'Pickup Place', 'gcplaces');
+  $dropoff_string = __( 'Dropoff Place', 'gcplaces');
+
   $mapbox_token = rwmb_meta( 'mapbox_token', array( 'object_type' => 'setting' ), 'gcplaces_options' );
   $pickup_id = rwmb_meta( '_car_pickup_ref' );
   $pickup_place = get_post( $pickup_id );
@@ -22,16 +25,20 @@ function gc_places_car_pickup_dropoff_shortcode( $atts ) {
   $dropoff_geojson = htmlspecialchars_decode(get_post_meta( $dropoff_id, '_place_geo', $single = true ));
 
   if (!isset($pickup_id) || $pickup_id == '') {
-    return "<b>No se encontró un lugar de recogida.</b>";
+    // return "<b>No se encontró un lugar de recogida.</b>";
+    return "";
   }
   if (!isset($dropoff_id) || $dropoff_id == '') {
-    return "<b>No se encontró un lugar de llegada.</b>";
+    // return "<b>No se encontró un lugar de llegada.</b>";
+    return "";
   }
   if (!isset($pickup_geojson) || $pickup_geojson == '') {
-    return "<b>No se encontró ubicación del lugar de recogida.</b>";
+    // return "<b>No se encontró ubicación del lugar de recogida.</b>";
+    return "";
   }
   if (!isset($dropoff_geojson) || $dropoff_geojson == '') {
-    return "<b>No se encontró ubicación del lugar de llegada.</b>";
+    // return "<b>No se encontró ubicación del lugar de llegada.</b>";
+    return "";
   }
 
   // Genera el contenido que define el ícono de Pickup
@@ -46,7 +53,7 @@ function gc_places_car_pickup_dropoff_shortcode( $atts ) {
   if ( !empty($primary_category) ) {
     // Buscar si la categoría tiene un ícono seleccionado.
     $custom_icon = gcplaces_get_icon_by_taxonomy($primary_category);
-    $pickup_style = gcplaces_build_style_by_taxonomy($primary_category);
+    $pickup_style = gcplaces_build_style_by_taxonomy($primary_category) . ',';
   }
   if ( !empty($custom_icon) ) {
     $pickup_icon = gcplaces_build_point_to_layer($custom_icon) . ",";
@@ -66,7 +73,7 @@ function gc_places_car_pickup_dropoff_shortcode( $atts ) {
   if ( !empty($primary_category) ) {
     // Buscar si la categoría tiene un ícono seleccionado.
     $custom_icon = gcplaces_get_icon_by_taxonomy($primary_category);
-    $dropoff_style = gcplaces_build_style_by_taxonomy($primary_category);
+    $dropoff_style = gcplaces_build_style_by_taxonomy($primary_category) . ',';
   }
   if ( !empty($custom_icon) ) {
     $dropoff_icon = gcplaces_build_point_to_layer($custom_icon) . ",";
@@ -91,10 +98,10 @@ $output = <<<EOT
   function onEachFeature(feature, layer) {
 		let popupContent = "";
     if (feature.properties && feature.properties.type == 'pickup') {
-			popupContent += "<b>Lugar de recogida: " + feature.properties.name + "</b>";
+			popupContent += "<b>$pickup_string: " + feature.properties.name + "</b>";
 		}
     if (feature.properties && feature.properties.type == 'dropoff') {
-			popupContent += "<b>Lugar de llegada: " + feature.properties.name + "</b>";
+			popupContent += "<b>$dropoff_string: " + feature.properties.name + "</b>";
 		}
 		layer.bindPopup(popupContent);
 	}
@@ -108,7 +115,7 @@ $output = <<<EOT
     pickupGeoJSON,
     {
       $pickup_icon
-      $pickup_style,
+      $pickup_style
       onEachFeature: onEachFeature
     }
   );
@@ -122,7 +129,7 @@ $output = <<<EOT
     dropoffGeoJSON,
     {
       $dropoff_icon
-      $dropoff_style,
+      $dropoff_style
       onEachFeature: onEachFeature
     }
   );
@@ -130,7 +137,6 @@ $output = <<<EOT
   let featureGroup = L.featureGroup([pickupGeoLayer, dropoffGeoLayer]).addTo({$a['div_id']});
 
   {$a['div_id']}.fitBounds(featureGroup.getBounds());
-  console.log(fitBounds(featureGroup.getBounds()));
   </script>
 EOT;
 

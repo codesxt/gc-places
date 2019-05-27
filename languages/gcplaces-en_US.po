@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-05-27 11:08-0400\n"
+"PO-Revision-Date: 2019-05-27 11:20-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: shortcodes\n"
+"X-Poedit-SearchPathExcluded-0: bakery\n"
+"X-Poedit-SearchPathExcluded-1: dependencies\n"
+"X-Poedit-SearchPathExcluded-2: place-cpt\n"
+
+#: shortcodes/place-gallery.php:19 strings/strings.php:1
+msgid "Gallery"
+msgstr "Gallery"
+
+#: strings/strings.php:2
+msgid "Pickup Place"
+msgstr "Pickup Place"
+
+#: strings/strings.php:3
+msgid "Dropoff Place"
+msgstr "Dropoff Place"
+
+#: strings/strings.php:4
+msgid "Address"
+msgstr "Address"
+
+#: strings/strings.php:5
+msgid "Pickup and Dropoff"
+msgstr "Pickup and Dropoff"
+
+#: strings/strings.php:6
+msgid "Telephone"
+msgstr "Telephone"
+
+#: strings/strings.php:7
+msgid "Email"
+msgstr "Email"
+
+#: strings/strings.php:8
+msgid "Website"
+msgstr "Website"
+
+#: strings/strings.php:9
+msgid "References"
+msgstr "References"
+
+#: strings/strings.php:10
+msgid "Place"
+msgstr "Place"

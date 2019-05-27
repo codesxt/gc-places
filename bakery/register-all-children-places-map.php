@@ -63,7 +63,7 @@ function gcplaces_allchildren_integrateWithVC() {
         "class" => "",
         "heading" => "Zoom",
         "param_name" => "zoom",
-        "value" => "-70.769915",
+        "value" => "13",
         "description" => "Zoom inicial del mapa."
       )
     )

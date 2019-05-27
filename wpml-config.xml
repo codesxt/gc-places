@@ -1,0 +1,106 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="copy">global_media_site_id</custom-field>
+        <custom-field action="translate">menu_order</custom-field>
+        <custom-field action="copy">meta-geo</custom-field>
+        <custom-field action="translate">popup_infos</custom-field>
+        <custom-field action="translate">post_parent</custom-field>
+        <custom-field action="translate">slide_template</custom-field>
+        <custom-field action="translate">tour_schedule</custom-field>
+        <custom-field action="copy">_place_gallery</custom-field>
+        <custom-field action="copy">_place_geo</custom-field>
+        <custom-field action="copy">_place_address</custom-field>
+        <custom-field action="copy">_place_phone</custom-field>
+        <custom-field action="copy">_place_email</custom-field>
+        <custom-field action="copy-once">_place_website</custom-field>
+        <custom-field action="copy-once">_place_same_as</custom-field>
+        <!-- Campos comunes -->
+        <custom-field action="copy">_header_image</custom-field>
+        <custom-field action="copy">_header_image_height</custom-field>
+        <custom-field action="copy">_header_content</custom-field>
+        <!-- Campos para Tour -->
+        <custom-field action="translate">_tour_type</custom-field>
+        <custom-field action="copy">_tour_max_people</custom-field>
+        <custom-field action="copy">_tour_price_type</custom-field>
+        <custom-field action="copy">_tour_price</custom-field>
+        <custom-field action="copy">_tour_charge_child</custom-field>
+        <custom-field action="translate">_tour_brief</custom-field>
+        <custom-field action="translate">_tour_facilities</custom-field>
+        <custom-field action="copy">_tour_address</custom-field>
+        <custom-field action="copy">_tour_booking_type</custom-field>
+        <custom-field action="copy">_tour_repeated</custom-field>
+        <custom-field action="copy">_tour_start_date</custom-field>
+        <custom-field action="copy">_tour_end_date</custom-field>
+        <custom-field action="copy">_tour_time</custom-field>
+        <custom-field action="copy">_tour_monday_available</custom-field>
+        <custom-field action="copy">_tour_monday_price</custom-field>
+        <custom-field action="copy">_tour_tuesday_available</custom-field>
+        <custom-field action="copy">_tour_tuesday_price</custom-field>
+        <custom-field action="copy">_tour_wednesday_available</custom-field>
+        <custom-field action="copy">_tour_wednesday_price</custom-field>
+        <custom-field action="copy">_tour_thursday_available</custom-field>
+        <custom-field action="copy">_tour_thursday_price</custom-field>
+        <custom-field action="copy">_tour_friday_available</custom-field>
+        <custom-field action="copy">_tour_friday_price</custom-field>
+        <custom-field action="copy">_tour_saturday_available</custom-field>
+        <custom-field action="copy">_tour_saturday_price</custom-field>
+        <custom-field action="copy">_tour_sunday_available</custom-field>
+        <custom-field action="copy">_tour_sunday_price</custom-field>
+        <custom-field action="copy">_tour_security_deposit</custom-field>
+        <custom-field action="copy-once">tour_schedule</custom-field>
+        <!-- Campos para Hotel -->
+        <custom-field action="copy">_hotel_star</custom-field>
+        <custom-field action="copy">_hotel_price</custom-field>
+        <custom-field action="translate">_hotel_brief</custom-field>
+        <custom-field action="copy">_hotel_star</custom-field>
+        <custom-field action="translate">_hotel_facilities</custom-field>
+        <custom-field action="copy">_hotel_star</custom-field>
+        <custom-field action="copy">_hotel_address</custom-field>
+        <custom-field action="copy">_hotel_email</custom-field>
+        <custom-field action="copy">_hotel_phone</custom-field>
+        <custom-field action="translate">_hotel_place_ref</custom-field>
+        <custom-field action="copy">_hotel_fixed_sidebar</custom-field>
+        <custom-field action="copy">_hotel_booking_type</custom-field>
+        <custom-field action="copy">_hotel_minimum_stay</custom-field>
+        <custom-field action="copy">_hotel_security_deposit</custom-field>
+        <!-- Campos para Car -->
+        <custom-field action="translate">_car_type</custom-field>
+        <custom-field action="copy">_car_price</custom-field>
+        <custom-field action="copy">_car_charge_child</custom-field>
+        <custom-field action="copy">_car_price_child</custom-field>
+        <custom-field action="translate">_car_brief</custom-field>
+        <custom-field action="translate">_car_facilities</custom-field>
+        <custom-field action="copy">_car_address</custom-field>
+        <custom-field action="translate">_car_pickup_ref</custom-field>
+        <custom-field action="translate">_car_dropoff_ref</custom-field>
+        <custom-field action="copy">_car_booking_type</custom-field>
+        <custom-field action="copy">_car_repeated</custom-field>
+        <custom-field action="copy">_car_date</custom-field>
+        <custom-field action="copy">_car_start_date</custom-field>
+        <custom-field action="copy">_car_end_date</custom-field>
+        <custom-field action="copy">_car_monday_available</custom-field>
+        <custom-field action="copy">_car_monday_price</custom-field>
+        <custom-field action="copy">_car_tuesday_available</custom-field>
+        <custom-field action="copy">_car_tuesday_price</custom-field>
+        <custom-field action="copy">_car_wednesday_available</custom-field>
+        <custom-field action="copy">_car_wednesday_price</custom-field>
+        <custom-field action="copy">_car_thursday_available</custom-field>
+        <custom-field action="copy">_car_thursday_price</custom-field>
+        <custom-field action="copy">_car_friday_available</custom-field>
+        <custom-field action="copy">_car_friday_price</custom-field>
+        <custom-field action="copy">_car_saturday_available</custom-field>
+        <custom-field action="copy">_car_saturday_price</custom-field>
+        <custom-field action="copy">_car_sunday_available</custom-field>
+        <custom-field action="copy">_car_sunday_price</custom-field>
+        <custom-field action="copy">_car_security_deposit</custom-field>
+    </custom-fields>
+    <custom-types>
+        <custom-type translate="1">place</custom-type>
+        <custom-type translate="1">tour</custom-type>
+        <custom-type translate="1">hotel</custom-type>
+        <custom-type translate="1">car</custom-type>
+    </custom-types>
+    <taxonomies>
+        <taxonomy translate="0">place-type</taxonomy>
+    </taxonomies>
+</wpml-config>

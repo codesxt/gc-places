@@ -13,8 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '' );
 }
 
+add_action( 'plugins_loaded', 'gcplaces_load_text_domain' );
+function gcplaces_load_text_domain() {
+  load_plugin_textdomain( 'gcplaces', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
 function gcplaces_enqueue_styles() {
     wp_enqueue_style( 'ellipsis-css', plugin_dir_url( __FILE__ ) . 'css/ellipsis.css' );
+		wp_enqueue_style( 'gcplaces-styles-css', plugin_dir_url( __FILE__ ) . 'css/styles.css' );
 }
 add_action( 'wp_enqueue_scripts', 'gcplaces_enqueue_styles' );
 
@@ -40,9 +46,15 @@ include( plugin_dir_path( __FILE__ ) . '/place-cpt/place-parent-terms.php' );
 // Execute actions on existing implementations
 include( plugin_dir_path( __FILE__ ) . '/actions/add-place-to-hotel.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/remove-district-from-hotel.php' );
-include( plugin_dir_path( __FILE__ ) . '/actions/remove-related-from-hotel.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-fields-from-hotel.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-slider-fields.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/add-header-metabox-to-places.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/remove-tour-data.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/copy-post-data-translation.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-fields-from-checkout.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/translate-references-on-translate.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-quantity-selector.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/tests.php' );
 
 // Include tour schedules
 include( plugin_dir_path( __FILE__ ) . '/tour-schedule/tour-schedule.php' );
