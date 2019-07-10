@@ -3,15 +3,26 @@
 add_shortcode( 'gcplaces_breadcrumbs', 'gc_places_breadcrumbs_shortcode' );
 function gc_places_breadcrumbs_shortcode( $atts ) {
   $a = shortcode_atts( array(
-    'post_id' => get_the_ID(),
-    'height' => '400px',
-    'div_id' => 'map',
-    'lat' => '-33.4727092',
-    'lng' => '-70.769915',
-    'zoom' => '13'
+    'post_id' => get_the_ID()
   ), $atts );
 
-  $parents = get_post_parents($a['post_id']);
+  $post_type = get_post_type( $a['post_id'] );
+  $parents = [];
+  if ( $post_type == 'hotel' ) {
+    // Si el post es un hotel, se deben usar los
+    // permalinks padres del place asociado
+    $place_id = get_post_meta( $a['post_id'], '_hotel_place_ref', true );
+    if( !empty($place_id) ) {
+      $place = get_post( $place_id );
+      if( !empty($place) ) {
+        $parents = get_post_parents( $place_id );
+      }
+    }
+  } else {
+    $parents = get_post_parents( $a['post_id'] );
+  }
+
+  $parents = array_reverse ( $parents );
 
   $output = '';
   $output .= '<ul>';

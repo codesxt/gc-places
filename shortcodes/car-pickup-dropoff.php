@@ -41,6 +41,17 @@ function gc_places_car_pickup_dropoff_shortcode( $atts ) {
     return "";
   }
 
+  // Imágenes de header
+  $pickup_header_src = ct_get_header_image_src( $pickup_place->ID, 'teaser' );
+  if ( empty($pickup_header_src) ) {
+    $pickup_header_src = ct_get_header_image_src( $pickup_place->ID, 'medium' );
+  }
+
+  $dropoff_header_src = ct_get_header_image_src( $dropoff_place->ID, 'teaser' );
+  if ( empty($dropoff_header_src) ) {
+    $dropoff_header_src = ct_get_header_image_src( $dropoff_place->ID, 'medium' );
+  }
+
   // Genera el contenido que define el ícono de Pickup
   $category = null;
   $primary_category = null;
@@ -81,9 +92,21 @@ function gc_places_car_pickup_dropoff_shortcode( $atts ) {
     $dropoff_icon = '';
   }
 
+  $pickup_image_text = '';
+  if ( ! empty( $pickup_header_src ) ) {
+      $pickup_image_text .= ",\n  image: '".$pickup_header_src."'";
+  }
+  $dropoff_image_text = '';
+  if ( ! empty( $dropoff_header_src ) ) {
+      $dropoff_image_text .= ",\n  image: '".$dropoff_header_src."'";
+  }
+
 
 $output = <<<EOT
   <div id="{$a['div_id']}" style="height:{$a['height']};"></div>
+  <style>
+  .leaflet-popup-content { width:auto !important; }
+  </style>
   <script>
   let {$a['div_id']} = L.map('{$a['div_id']}').setView([{$a['lat']},{$a['lng']}], {$a['zoom']});
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -97,19 +120,24 @@ $output = <<<EOT
 
   function onEachFeature(feature, layer) {
 		let popupContent = "";
+    if (feature.properties.image) {
+      let imageUrl = feature.properties.image;
+      popupContent += "<img src='"+ imageUrl +"' style='max-width:200px; width: 200px;'/> <br><br>";
+    }
     if (feature.properties && feature.properties.type == 'pickup') {
 			popupContent += "<b>$pickup_string: " + feature.properties.name + "</b>";
 		}
     if (feature.properties && feature.properties.type == 'dropoff') {
 			popupContent += "<b>$dropoff_string: " + feature.properties.name + "</b>";
 		}
-		layer.bindPopup(popupContent);
+		layer.bindPopup(popupContent, {maxWidth: "auto"});
 	}
 
   let pickupGeoJSON = $pickup_geojson;
   pickupGeoJSON.properties = {
     name: '$pickup_place->post_title',
     type: 'pickup'
+    $pickup_image_text
   }
   let pickupGeoLayer = L.geoJSON(
     pickupGeoJSON,
@@ -124,6 +152,7 @@ $output = <<<EOT
   dropoffGeoJSON.properties = {
     name: '$dropoff_place->post_title',
     type: 'dropoff'
+    $dropoff_image_text
   }
   let dropoffGeoLayer = L.geoJSON(
     dropoffGeoJSON,

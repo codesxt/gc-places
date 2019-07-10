@@ -7,18 +7,22 @@ function gc_places_all_children_places_teaser_list_shortcode( $atts ) {
   $filtered_posts = filter_posts_by_type($descendants, 'place');
 
   $output = '<div class="hotel-list">';
-  $output = '  <div class="wpv-loop js-wpv-loop">';
+  $output = '  <div class=" wpv-loop js-wpv-loop">';
   foreach ($filtered_posts as $place) {
-    $header_img_src = ct_get_header_image_src( $place->ID );
+    $header_img_src = ct_get_header_image_src( $place->ID, 'teaser' );
+    if ( empty($header_img_src) ) {
+      $header_img_src = ct_get_header_image_src( $place->ID, 'medium' );
+    }
+
     $permalink = gc_places_get_place_permalink($place);
 
     $output .= '';
-    $output .= '<div class="strip_all_tour_list wow fadeIn animated animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">';
+    $output .= '<div class="strip_all_tour_list wow fadeIn animated animated place-teaser-list" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">';
     $output .= '<div class="row">';
     $output .= '  <div class="col-sm-3 col-xs-12">';
     $output .= '    <div class="img_list">';
     $output .= '      <a href="' . $permalink . '">';
-    $output .= '        <img src="'. $header_img_src .'">';
+    $output .= '        <img src="'. $header_img_src .'" style="max-width: none !important; left: 0% !important;">';
     $output .= '      </a>';
     $output .= '    </div>';
     $output .= '  </div>';

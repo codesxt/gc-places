@@ -10,7 +10,7 @@ function gc_places_place_gallery_shortcode( $atts ) {
   ), $atts );
 ?>
 <?php
-    $images = rwmb_meta( '_place_gallery', array( 'size' => 'thumbnail' ) );
+    $images = rwmb_meta( '_place_gallery', array( 'size' => 'teaser' ) );
     if ( !empty($images) ) {
 ?>
 
@@ -29,7 +29,7 @@ function gc_places_place_gallery_shortcode( $atts ) {
             <?php
             foreach ( $images as $image ) {
                 echo '<div class="sp-slide">';
-                echo '<img class="sp-image" src="'.$image['full_url'].'"/>';
+                echo '<img class="sp-image" src="'.$image['url'].'"/>';
                 /*
                 if ( !empty($image['image_meta']['caption']) ) {
                     echo '<p class="sp-caption">'.$image['image_meta']['caption'].'</p>';

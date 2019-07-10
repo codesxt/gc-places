@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-05-27 11:08-0400\n"
-"PO-Revision-Date: 2019-05-27 11:08-0400\n"
+"POT-Creation-Date: 2019-06-27 16:56-0400\n"
+"PO-Revision-Date: 2019-06-27 16:56-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_CL\n"
@@ -19,17 +19,75 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: dependencies\n"
 "X-Poedit-SearchPathExcluded-2: place-cpt\n"
 
+#: actions/add-conditions.php:65 actions/add-conditions.php:89
+#: actions/add-conditions.php:113
+msgid "Service Conditions"
+msgstr "Condiciones del Servicio"
+
+#: actions/add-conditions.php:81 actions/add-conditions.php:105
+#: actions/add-conditions.php:129
+msgid "Specific Conditions"
+msgstr "Condiciones Específicas"
+
+#: actions/add-tours-taxonomy.php:10
+msgid "Search Services"
+msgstr "Buscar Servicios"
+
+#: actions/add-tours-taxonomy.php:11
+msgid "All Services"
+msgstr "Todos los Servicios"
+
+#: actions/add-tours-taxonomy.php:12
+msgid "Parent Service"
+msgstr "Servicio Padre"
+
+#: actions/add-tours-taxonomy.php:13
+msgid "Parent Service:"
+msgstr "Servicio Padre:"
+
+#: actions/add-tours-taxonomy.php:14
+msgid "Edit Service"
+msgstr "Editar Servicio"
+
+#: actions/add-tours-taxonomy.php:15
+msgid "Update Service"
+msgstr "Actualizar Servicio"
+
+#: actions/add-tours-taxonomy.php:16
+msgid "Add New Service"
+msgstr "Añadir Nuevo Servicio"
+
+#: actions/add-tours-taxonomy.php:17
+msgid "New Service Name"
+msgstr "Nuevo Nombre de Servicio"
+
+#: actions/add-tours-taxonomy.php:18
+msgid "Services"
+msgstr "Servicios"
+
+#: actions/add-tours-taxonomy.php:41
+msgid "Included Services"
+msgstr "Servicios Incluidos"
+
+#: actions/add-tours-taxonomy.php:56
+msgid "Not Included Services"
+msgstr "Servicios No Incluidos"
+
+#: shortcodes/car-pickup-dropoff.php:14 strings/strings.php:2
+msgid "Pickup Place"
+msgstr "Lugar de Recogida"
+
+#: shortcodes/car-pickup-dropoff.php:15 strings/strings.php:3
+msgid "Dropoff Place"
+msgstr "Lugar de Entrega"
+
 #: shortcodes/place-gallery.php:19 strings/strings.php:1
 msgid "Gallery"
 msgstr "Galería"
 
-#: strings/strings.php:2
-msgid "Pickup Place"
-msgstr "Lugar de Recogida"
-
-#: strings/strings.php:3
-msgid "Dropoff Place"
-msgstr "Lugar de Entrega"
+#: shortcodes/place-map.php:17 strings/strings.php:10
+msgid "Place"
+msgstr "Lugar"
 
 #: strings/strings.php:4
 msgid "Address"
@@ -55,6 +113,17 @@ msgstr "Sitio Web"
 msgid "References"
 msgstr "Referencias"
 
-#: strings/strings.php:10
-msgid "Place"
-msgstr "Lugar"
+#~ msgid "Available Services"
+#~ msgstr "Servicios Disponibles"
+
+#~ msgid "Unavailable Services"
+#~ msgstr "Servicios No Disponibles"
+
+#~ msgid "Benefits"
+#~ msgstr "Prestaciones"
+
+#~ msgid "All Benefits"
+#~ msgstr "Todas las Prestaciones"
+
+#~ msgid "Edit Benefit"
+#~ msgstr "Editar Prestación"

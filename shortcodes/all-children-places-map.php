@@ -29,6 +29,11 @@ function gc_places_all_children_places_map_shortcode( $atts ) {
     } else {
       $permalink = get_post_permalink($place->ID);
     }
+    //Obtener imagen de encabezado
+    $header_img_src = ct_get_header_image_src( $place->ID, 'teaser' );
+    if ( empty($header_img_src) ) {
+      $header_img_src = ct_get_header_image_src( $place->ID, 'medium' );
+    }
 
     // Obtener ícono custom por taxonomía
     $category = null;
@@ -50,6 +55,9 @@ function gc_places_all_children_places_map_shortcode( $atts ) {
     $point_text .= "geojson.properties = {";
     $point_text .= "  name: '".$place->post_title."',";
     $point_text .= "  url: '".$permalink."'";
+    if ( ! empty( $header_img_src ) ) {
+        $point_text .= ",\n  image: '".$header_img_src."'";
+    }
     $point_text .= "};\n";
     $point_text .= "features.push(L.geoJSON(";
     $point_text .= "  geojson,";
@@ -69,6 +77,9 @@ function gc_places_all_children_places_map_shortcode( $atts ) {
   }
 
 $output = <<<EOT
+  <style>
+  .leaflet-popup-content { width:auto !important; }
+  </style>
   <div class="wpb_content_element">
   <div id="{$a['div_id']}" style="height:{$a['height']};"></div>
   </div>
@@ -85,8 +96,12 @@ $output = <<<EOT
 
   function onEachFeature(feature, layer) {
 		let popupContent = "";
+    if (feature.properties.image) {
+      let imageUrl = feature.properties.image;
+      popupContent += "<img src='"+ imageUrl +"' style='max-width:200px; width: 200px;'/> <br><br>";
+    }
     popupContent += "<b><a href='" + feature.properties.url + "'>" + feature.properties.name + "</a></b>";
-		layer.bindPopup(popupContent);
+		layer.bindPopup(popupContent, { maxWidth: "auto" });
 	}
 
   let features = [];

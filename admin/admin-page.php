@@ -80,8 +80,8 @@ function gcplaces_options_page( $settings_pages ) {
 }
 
 // Register meta boxes and fields for settings page
-add_filter( 'rwmb_meta_boxes', 'prefix_options_meta_boxes' );
-function prefix_options_meta_boxes( $meta_boxes ) {
+add_filter( 'rwmb_meta_boxes', 'gcplaces_options_meta_boxes' );
+function gcplaces_options_meta_boxes( $meta_boxes ) {
 		$faq_html = file_get_contents( plugin_dir_path( __FILE__ ) . '/content-faq.html', true);
     $meta_boxes[] = array(
         'id'             => 'general',

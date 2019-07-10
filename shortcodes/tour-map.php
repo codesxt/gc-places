@@ -36,6 +36,11 @@ function gc_places_tour_map_shortcode( $atts ) {
     if( empty($geojson) ) {
       continue;
     }
+    //Obtener imagen de encabezado
+    $header_img_src = ct_get_header_image_src( $place->ID, 'teaser' );
+    if ( empty($header_img_src) ) {
+      $header_img_src = ct_get_header_image_src( $place->ID, 'medium' );
+    }
 
     // Obtener ícono custom por taxonomía
     $category = null;
@@ -56,6 +61,9 @@ function gc_places_tour_map_shortcode( $atts ) {
     $point_text .= "geojson = ".$geojson.";\n";
     $point_text .= "geojson.properties = {";
     $point_text .= "  name: '".$place->post_title."'";
+    if ( ! empty( $header_img_src ) ) {
+        $point_text .= ",\n  image: '".$header_img_src."'";
+    }
     $point_text .= "};\n";
     $point_text .= "features.push(L.geoJSON(";
     $point_text .= "  geojson,";
@@ -76,6 +84,9 @@ function gc_places_tour_map_shortcode( $atts ) {
 
 $output = <<<EOT
   <div id="{$a['div_id']}" style="height:{$a['height']};"></div>
+  <style>
+  .leaflet-popup-content { width:auto !important; }
+  </style>
   <script>
   let {$a['div_id']} = L.map('{$a['div_id']}').setView([{$a['lat']},{$a['lng']}], {$a['zoom']});
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -89,8 +100,12 @@ $output = <<<EOT
 
   function onEachFeature(feature, layer) {
     let popupContent = "";
+    if (feature.properties.image) {
+      let imageUrl = feature.properties.image;
+      popupContent += "<img src='"+ imageUrl +"' style='max-width:200px; width: 200px;'/> <br><br>";
+    }
     popupContent += "<b>Lugar: " + feature.properties.name + "</b>";
-    layer.bindPopup(popupContent);
+    layer.bindPopup(popupContent, { maxWidth: "auto" });
   }
 
   let features = [];

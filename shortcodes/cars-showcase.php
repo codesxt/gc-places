@@ -9,7 +9,7 @@ function gc_places_cars_showcase_shortcode( $atts ) {
   $output = '';
 
   $output = '<div class="hotel-list">';
-  $output .= '  <div class="container">';
+  $output .= '  <div class="">';
   $output .= '    <div class="row">';
   foreach ($filtered_posts as $post) {
     $pickup_id = null;
@@ -20,7 +20,11 @@ function gc_places_cars_showcase_shortcode( $atts ) {
     $dropoff_id = rwmb_meta( '_car_pickup_ref', null, $post->ID );
     $dropoff_place = get_post( $pickup_id );
 
-    $header_img_src = ct_get_header_image_src( $post->ID );
+    $header_img_src = ct_get_header_image_src( $post->ID, 'teaser' );
+    if ( empty($header_img_src) ) {
+      $header_img_src = ct_get_header_image_src( $post->ID, 'medium' );
+    }
+
     $permalink = get_post_permalink( $post->ID );
     $person_price = get_post_meta( $post->ID, '_car_price', true );
 
@@ -28,7 +32,7 @@ function gc_places_cars_showcase_shortcode( $atts ) {
     $output .= '<div class="strip_all_tour_list wow fadeIn animated animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">';
     $output .= '<div class="col-sm-4">';
     $output .= '  <div class="tour_container">';
-    $output .= '    <div class="img_container" style="max-height:140;overflow:hidden;">';
+    $output .= '    <div class="img_container" style="">';
     $output .= '      <a href="'. $permalink .'" data-slimstat="5">';
     $output .= '        <img src="'. $header_img_src .'">';
     $output .= '      </a>';

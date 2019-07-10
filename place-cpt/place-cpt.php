@@ -14,6 +14,7 @@ function create_posttype() {
           'slug' => 'place'
         ),
         'hierarchical' => false,
+        'query_var' => true,
         'supports' => array(
           'title',
           'editor',

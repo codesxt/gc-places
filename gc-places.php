@@ -54,6 +54,10 @@ include( plugin_dir_path( __FILE__ ) . '/actions/copy-post-data-translation.php'
 include( plugin_dir_path( __FILE__ ) . '/actions/remove-fields-from-checkout.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/translate-references-on-translate.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/remove-quantity-selector.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/add-image-sizes.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/add-tours-taxonomy.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/add-conditions.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-district-taxonomy.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/tests.php' );
 
 // Include tour schedules
@@ -72,9 +76,11 @@ include( plugin_dir_path( __FILE__ ) . '/shortcodes/tour-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/breadcrumbs.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/place-gallery.php' );
 // NOT WORKING YET include( plugin_dir_path( __FILE__ ) . '/shortcodes/meta-place.php' );
+include( plugin_dir_path( __FILE__ ) . '/shortcodes/woocommerce-conditions.php' );
 
 // Add admin menu
 include( plugin_dir_path( __FILE__ ) . '/admin/admin-page.php' );
+// include( plugin_dir_path( __FILE__ ) . '/admin/admin-conditions.php' );
 
 // WP Bakery Integration
 include( plugin_dir_path( __FILE__ ) . '/bakery/register-all-children-places-map.php' );

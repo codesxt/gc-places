@@ -9,7 +9,9 @@ function get_posts_children($parent_id){
       'post_status' => 'publish',
       'post_type' => 'any',
       'post_parent' => $parent_id,
-      'suppress_filters' => false
+      'suppress_filters' => false,
+      'orderby' => 'menu_order post_title',
+      'order' => 'ASC',
     )
   );
   foreach( $posts as $child ){
