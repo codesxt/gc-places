@@ -12,6 +12,21 @@
   }
 }
 
+.tour_list_desc h3 {
+  margin-top: 15px !important;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .img_list img {
+  	left: 0% !important;
+  }
+
+  .post-content img {
+    max-width: none !important;
+  }
+}
+
+/*
 .strip_all_tour_list {
   margin-bottom: 0px !important;
 }
@@ -19,3 +34,4 @@
 .place-teaser-list {
   margin-bottom: 30px !important;
 }
+*/

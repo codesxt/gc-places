@@ -6,6 +6,33 @@ function gc_places_tours_showcase_shortcode( $atts ) {
   $descendants = get_posts_children(get_the_ID());
   $filtered_posts = filter_posts_by_type($descendants, 'tour');
 
+  ob_start();
+  ?>
+
+  <div class="tour-list">
+    <div class=" wpv-loop js-wpv-loop">
+  <?php
+  foreach ($filtered_posts as $tour) {
+    $post_id = $tour->ID;
+    $default_path = plugin_dir_path( __DIR__ ) . 'templates/';
+    $template_name = 'tour-row.php';
+
+    include( $default_path . $template_name );
+  }
+  ?>
+    </div>
+  </div>
+
+  <?php
+  $data = ob_get_contents();
+  ob_end_clean();
+  
+  return $data;
+}
+add_shortcode( 'tours_showcase', 'gc_places_tours_showcase_shortcode' );
+
+
+/*
   $output = '';
 
   $output = '<div class="hotel-list">';
@@ -64,5 +91,4 @@ function gc_places_tours_showcase_shortcode( $atts ) {
   $output .= ' </div>';
   $output .= '</div>';
   return $output;
-}
-add_shortcode( 'tours_showcase', 'gc_places_tours_showcase_shortcode' );
+*/

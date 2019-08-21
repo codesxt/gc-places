@@ -58,6 +58,7 @@ include( plugin_dir_path( __FILE__ ) . '/actions/add-image-sizes.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/add-tours-taxonomy.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/add-conditions.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/remove-district-taxonomy.php' );
+include( plugin_dir_path( __FILE__ ) . '/actions/remove-recommended-products-translated.php' );
 include( plugin_dir_path( __FILE__ ) . '/actions/tests.php' );
 
 // Include tour schedules

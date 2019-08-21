@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-06-27 16:56-0400\n"
-"PO-Revision-Date: 2019-06-27 16:56-0400\n"
+"POT-Creation-Date: 2019-07-25 15:58-0400\n"
+"PO-Revision-Date: 2019-07-25 15:59-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_CL\n"
@@ -19,57 +19,51 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: dependencies\n"
 "X-Poedit-SearchPathExcluded-2: place-cpt\n"
 
-#: actions/add-conditions.php:65 actions/add-conditions.php:89
-#: actions/add-conditions.php:113
-msgid "Service Conditions"
+#: actions/add-conditions.php:135
+msgid "Services requirements"
 msgstr "Condiciones del Servicio"
 
-#: actions/add-conditions.php:81 actions/add-conditions.php:105
-#: actions/add-conditions.php:129
-msgid "Specific Conditions"
-msgstr "Condiciones Específicas"
-
-#: actions/add-tours-taxonomy.php:10
+#: actions/add-tours-taxonomy.php:8
 msgid "Search Services"
 msgstr "Buscar Servicios"
 
-#: actions/add-tours-taxonomy.php:11
+#: actions/add-tours-taxonomy.php:9
 msgid "All Services"
 msgstr "Todos los Servicios"
 
-#: actions/add-tours-taxonomy.php:12
+#: actions/add-tours-taxonomy.php:10
 msgid "Parent Service"
 msgstr "Servicio Padre"
 
-#: actions/add-tours-taxonomy.php:13
+#: actions/add-tours-taxonomy.php:11
 msgid "Parent Service:"
 msgstr "Servicio Padre:"
 
-#: actions/add-tours-taxonomy.php:14
+#: actions/add-tours-taxonomy.php:12
 msgid "Edit Service"
 msgstr "Editar Servicio"
 
-#: actions/add-tours-taxonomy.php:15
+#: actions/add-tours-taxonomy.php:13
 msgid "Update Service"
 msgstr "Actualizar Servicio"
 
-#: actions/add-tours-taxonomy.php:16
+#: actions/add-tours-taxonomy.php:14
 msgid "Add New Service"
 msgstr "Añadir Nuevo Servicio"
 
-#: actions/add-tours-taxonomy.php:17
+#: actions/add-tours-taxonomy.php:15
 msgid "New Service Name"
 msgstr "Nuevo Nombre de Servicio"
 
-#: actions/add-tours-taxonomy.php:18
+#: actions/add-tours-taxonomy.php:16
 msgid "Services"
 msgstr "Servicios"
 
-#: actions/add-tours-taxonomy.php:41
+#: actions/add-tours-taxonomy.php:39
 msgid "Included Services"
 msgstr "Servicios Incluidos"
 
-#: actions/add-tours-taxonomy.php:56
+#: actions/add-tours-taxonomy.php:54
 msgid "Not Included Services"
 msgstr "Servicios No Incluidos"
 
@@ -112,6 +106,24 @@ msgstr "Sitio Web"
 #: strings/strings.php:9
 msgid "References"
 msgstr "Referencias"
+
+#: templates/car-row.php:40 templates/tour-row.php:41
+msgid "Featured"
+msgstr ""
+
+#: templates/car-row.php:42 templates/tour-row.php:43
+msgid "Hot"
+msgstr ""
+
+#: templates/car-row.php:55 templates/tour-row.php:56
+msgid "Save"
+msgstr ""
+
+#~ msgid "Service Conditions"
+#~ msgstr "Condiciones del Servicio"
+
+#~ msgid "Specific Conditions"
+#~ msgstr "Condiciones Específicas"
 
 #~ msgid "Available Services"
 #~ msgstr "Servicios Disponibles"

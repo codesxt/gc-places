@@ -79,7 +79,8 @@ function add_hotel_conditions() {
   // Hay condiciones específicas para este servicio
   $specific_conditions = rwmb_meta( '_hotel_conditions', null, $hotel_id );
   if ( !empty($specific_conditions) ) {
-    echo "<h4>" . __( 'Service Conditions', 'gcplaces') . "</h4>";
+    //echo "<h4>" . __( 'Service Conditions', 'gcplaces') . "</h4>";
+    echo "<h4 id='conditions'>" . __( 'Services requirements', 'gcplaces') . "</h4>";
     echo do_shortcode( wpautop( $specific_conditions ) );
   }
 }
@@ -104,7 +105,8 @@ function add_car_conditions() {
   // Hay condiciones específicas para este servicio
   $specific_conditions = rwmb_meta( '_car_conditions', null, $car_id );
   if ( !empty($specific_conditions) ) {
-    echo "<h4>" . __( 'Service Conditions', 'gcplaces') . "</h4>";
+    //echo "<h4>" . __( 'Service Conditions', 'gcplaces') . "</h4>";
+    echo "<h4 id='conditions'>" . __( 'Services requirements', 'gcplaces') . "</h4>";
     echo do_shortcode( wpautop( $specific_conditions ) );
   }
 }
@@ -129,7 +131,8 @@ function add_tour_conditions() {
   // Hay condiciones específicas para este servicio
   $specific_conditions = rwmb_meta( '_tour_conditions', null, $tour_id );
   if ( !empty($specific_conditions) ) {
-    echo "<h4>" . __( 'Service Conditions', 'gcplaces') . "</h4>";
+    //echo "<h4>" . __( 'Service Conditions', 'gcplaces') . "</h4>";
+    echo "<h4 id='conditions'>" . __( 'Services requirements', 'gcplaces') . "</h4>";
     echo do_shortcode( wpautop( $specific_conditions ) );
   }
 }

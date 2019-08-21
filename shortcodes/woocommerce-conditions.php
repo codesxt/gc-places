@@ -35,15 +35,10 @@ function gc_places_woocommerce_conditions_shortcode( $atts ) {
 
       foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 				$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-				echo "POTO";
 				print_r($_product);
-				echo "CACA";
-				$permapoto = $_product->get_permalink( $cart_item );
-				$original_post_id = url_to_postid( $permapoto );
+				$permalink_producto = $_product->get_permalink( $cart_item );
+				$original_post_id = url_to_postid( $permalink_producto );
 				print_r(  get_post($original_post_id) );
-				echo "<br/>";
-				echo "B⛎📧📈🅰️ ©️♓️🅾️®️🅾️";
-				echo "<br/>";
 				$value = rwmb_meta( '_hotel_conditions', array(), $original_post_id );
         echo do_shortcode( wpautop( $value ) );
 

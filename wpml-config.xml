@@ -93,15 +93,23 @@
         <custom-field action="copy">_car_sunday_available</custom-field>
         <custom-field action="copy">_car_sunday_price</custom-field>
         <custom-field action="copy">_car_security_deposit</custom-field>
+        <!-- Campos para Productos de Woocommerce
+        <custom-field action="copy">_stock</custom-field>
+        <custom-field action="copy">_manage_stock</custom-field>
+        <custom-field action="copy">_stock_status</custom-field>
+        <custom-field action="copy">_regular_price</custom-field>
+        <custom-field action="copy">_sale_price</custom-field>-->
     </custom-fields>
     <custom-types>
         <custom-type translate="1">place</custom-type>
         <custom-type translate="1">tour</custom-type>
         <custom-type translate="1">hotel</custom-type>
         <custom-type translate="1">car</custom-type>
+        <custom-type translate="1">product</custom-type>
     </custom-types>
     <taxonomies>
         <taxonomy translate="0">place-type</taxonomy>
         <taxonomy translate="1">service</taxonomy>
+        <taxonomy translate="1">pa_accommodation</taxonomy>
     </taxonomies>
 </wpml-config>
