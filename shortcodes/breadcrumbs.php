@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_shortcode( 'gcplaces_breadcrumbs', 'gc_places_breadcrumbs_shortcode' );
 function gc_places_breadcrumbs_shortcode( $atts ) {
   $a = shortcode_atts( array(

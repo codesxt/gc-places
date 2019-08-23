@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_action( 'init', 'gcplaces_add_new_image_size' );
 function gcplaces_add_new_image_size() {
   add_image_size( 'teaser', 600, 338, true );

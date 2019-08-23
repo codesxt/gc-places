@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 /*
   Los custom place no tienen la opción para añadir un encabezado, como
   los demás posts de City Tours. Este archivo añade el tipo place a los tipos

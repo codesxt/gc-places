@@ -75,7 +75,6 @@ include( plugin_dir_path( __FILE__ ) . '/shortcodes/tours-showcase.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/cars-showcase.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/tour-map.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/breadcrumbs.php' );
-include( plugin_dir_path( __FILE__ ) . '/shortcodes/place-gallery.php' );
 // NOT WORKING YET include( plugin_dir_path( __FILE__ ) . '/shortcodes/meta-place.php' );
 include( plugin_dir_path( __FILE__ ) . '/shortcodes/woocommerce-conditions.php' );
 

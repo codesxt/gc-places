@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_filter( 'rwmb_meta_boxes', 'gc_places_tour_schedule' );
 function gc_places_tour_schedule( $meta_boxes ) {
     $prefix = '_tour_schedule';

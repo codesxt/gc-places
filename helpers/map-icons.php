@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gcplaces_build_point_to_layer ($icon) {
   $output = "";
   $output .= "pointToLayer: function(feature, latlng) {";

@@ -1,4 +1,8 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
 // Based on answers from:
 // https://wordpress.stackexchange.com/questions/100707/automatically-assign-parent-terms-when-a-child-term-is-selected
 // Code from:

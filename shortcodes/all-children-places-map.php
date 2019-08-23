@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gc_places_all_children_places_map_shortcode( $atts ) {
   $a = shortcode_atts( array(
     'post_id' => get_the_ID(),

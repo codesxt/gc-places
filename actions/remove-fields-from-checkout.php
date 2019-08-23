@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_filter( 'woocommerce_checkout_fields' , 'custom_checkout_fields' );
 function custom_checkout_fields( $fields ) {
   unset($fields['billing']['billing_company']);

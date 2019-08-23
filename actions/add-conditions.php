@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 // Se añaden los campos de condiciones específicas a los posts
 add_filter( 'rwmb_meta_boxes', 'gcplaces_add_conditions_to_hotel', 20 );
 function gcplaces_add_conditions_to_hotel( $meta_boxes ) {

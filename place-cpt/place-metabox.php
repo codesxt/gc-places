@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_filter( 'rwmb_meta_boxes', 'gc_places_register_meta_boxes' );
 function gc_places_register_meta_boxes( $meta_boxes ) {
     $prefix = '_place_';

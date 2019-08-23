@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gcplaces_create_places_custom_taxonomy() {
 
   $labels = array(

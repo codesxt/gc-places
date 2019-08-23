@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_action( 'vc_before_init', 'gcplaces_allchildren_integrateWithVC' );
 function gcplaces_allchildren_integrateWithVC() {
   vc_map( array(

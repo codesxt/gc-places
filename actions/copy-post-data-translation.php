@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_action( 'edit_form_top', 'gcplaces_copy_post_title_lang', 10, 1 );
 function gcplaces_copy_post_title_lang( $post ) {
   $from_post = isset($_GET['from_post']) ? $_GET['from_post'] : 0;

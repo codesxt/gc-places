@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function run_tests() {
     global $wp_query;
     print_r($wp_query);

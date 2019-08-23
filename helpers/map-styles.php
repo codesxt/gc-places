@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gcplaces_build_style_by_taxonomy ( $taxonomy ) {
   $taxonomy_config = rwmb_meta( $taxonomy.'_config', array( 'object_type' => 'setting' ), 'gcplaces_options' );
   $output = "";

@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_shortcode( 'place_map', 'gc_places_place_map_shortcode' );
 function gc_places_place_map_shortcode( $atts ) {
   $a = shortcode_atts( array(

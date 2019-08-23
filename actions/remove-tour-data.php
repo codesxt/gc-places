@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_filter( 'rwmb_meta_boxes', 'gcplaces_remove_tour_fields', 20 );
 function gcplaces_remove_tour_fields( $meta_boxes ) {
   foreach ( $meta_boxes as $k => &$meta_box ) {

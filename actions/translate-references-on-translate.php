@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_filter( 'pll_translate_post_meta', 'translate_post_meta', 10, 3 );
 
 function translate_post_meta( $value, $key, $lang ) {

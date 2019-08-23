@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gcplaces_build_icontaxonomy_form_fields () {
   $fields = array();
   array_push($fields, array(

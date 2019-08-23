@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_shortcode( 'meta_place', 'gc_places_meta_place_shortcode' );
 function gc_places_meta_place_shortcode( $atts ) {
   $a = shortcode_atts( array(

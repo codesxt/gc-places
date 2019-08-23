@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 // Se definen las taxonomías para Tour
 function gcplaces_create_taxonomies_tours() {
   $labels = array(

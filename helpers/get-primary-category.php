@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 // Source: https://www.lab21.gr/blog/wordpress-get-primary-category-post
 
 function get_post_primary_category($post_id, $term='category', $return_all_categories=false){

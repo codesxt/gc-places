@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_shortcode( 'car_pickup_dropoff_map', 'gc_places_car_pickup_dropoff_shortcode' );
 function gc_places_car_pickup_dropoff_shortcode( $atts ) {
   $a = shortcode_atts( array(

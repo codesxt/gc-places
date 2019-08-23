@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_action( 'vc_before_init', 'gcplaces_carsshowcase_integrateWithVC' );
 function gcplaces_carsshowcase_integrateWithVC() {
   vc_map(

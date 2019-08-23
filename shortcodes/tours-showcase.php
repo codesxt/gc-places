@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gc_places_tours_showcase_shortcode( $atts ) {
   $a = shortcode_atts( array(
   ), $atts );
@@ -26,7 +30,7 @@ function gc_places_tours_showcase_shortcode( $atts ) {
   <?php
   $data = ob_get_contents();
   ob_end_clean();
-  
+
   return $data;
 }
 add_shortcode( 'tours_showcase', 'gc_places_tours_showcase_shortcode' );

@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gc_places_get_place_permalink($place) {
   $args = array(
     'post_type' => 'hotel',

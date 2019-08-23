@@ -1,3 +1,11 @@
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
+?>
+
 <?php echo __( 'Gallery', 'gcplaces'); ?>
 <?php echo __( 'Pickup Place', 'gcplaces'); ?>
 <?php echo __( 'Dropoff Place', 'gcplaces'); ?>

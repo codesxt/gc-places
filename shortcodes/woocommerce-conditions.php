@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_shortcode( 'gcplaces_wc_conditions', 'gc_places_woocommerce_conditions_shortcode' );
 function gc_places_woocommerce_conditions_shortcode( $atts ) {
   $a = shortcode_atts( array(

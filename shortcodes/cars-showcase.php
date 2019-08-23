@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 function gc_places_cars_showcase_shortcode( $atts ) {
   $a = shortcode_atts( array(
   ), $atts );

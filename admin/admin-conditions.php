@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 // Register settings page. In this case, it's a theme options page
 add_filter( 'mb_settings_pages', 'gcplaces_conditions_admin_page' );
 function gcplaces_conditions_admin_page( $settings_pages ) {

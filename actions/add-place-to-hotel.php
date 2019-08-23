@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '' );
+}
+
 add_filter( 'rwmb_meta_boxes', 'gcplaces_add_place_to_hotel', 20 );
 function gcplaces_add_place_to_hotel( $meta_boxes ) {
   foreach ( $meta_boxes as $k => &$meta_box ) {
